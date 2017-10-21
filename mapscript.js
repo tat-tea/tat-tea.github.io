@@ -9,15 +9,7 @@
 		if(req.readyState == 4){
 			var div = document.getElementById('test');
 			if(req.status == 200){
-				var txt = req.responseText
-				req.innertHTML = txt
-				/* var data = eval('(' + txt + ')');
-				for(var i = 0 ; i < data.length(); i++){
-					
-					alert(data[i].name);
-				
-				}
-				*/
+				var obj = JSON.parse(req.responseText);
 			} else {
 				div.innerHTML = 'json読み込みエラー';
 			}
