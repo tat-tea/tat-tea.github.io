@@ -10,6 +10,19 @@
 			var div = document.getElementById('test');
 			if(req.status == 200){
 				div.innerHTML = req.responseText;
+				
+				var data = eval('(' + req.responseText + ')');
+				for(var i = 0 ; i < data.length; i++){
+					
+					//if(data[i].deleteFlg == 0){
+					//}
+					
+					div.innerHTML = data[i].name
+				
+				}
+				
+				
+				
 			} else {
 				div.innerHTML = 'json読み込みエラー';
 			}
