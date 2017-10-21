@@ -9,8 +9,8 @@
 		if(req.readyState == 4){
 			var div = document.getElementById('test');
 			if(req.status == 200){
-				var obj = JSON.parse(req.responseText);
-				alert(obj.length)
+				var data = eval( '(' + req.responseText + ')' );
+
 			} else {
 				div.innerHTML = 'json読み込みエラー';
 			}
