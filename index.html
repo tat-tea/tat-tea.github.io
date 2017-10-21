@@ -9,7 +9,12 @@ height: 100%;
 }
 </style>
 </head>
-<body>
+<body onload="initMap()" onunload="GUnload()">
+    <form>
+    <p>
+    <input type="button" id="btn" value="開催地表示" onclick="downloadData()" />
+    </p>
+    </form>
 <div id="map"></div>
 <script type="text/javascript" src="mapscript.js"></script>
 <script async defer
