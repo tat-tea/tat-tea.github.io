@@ -1,7 +1,7 @@
 	var map;
+	var data;
 	
 	//load json
-	function loadJson(){
 	alert('いくぜ');
 	var req = new XMLHttpRequest();
 	req.open('GET', 'station.json');
@@ -9,10 +9,9 @@
 		if(req.readyState == 4){
 			var div = document.getElementById('test');
 			if(req.status == 200){
-				var data = eval( '(' + req.responseText + ')' );
-
+				data = eval( '(' + req.responseText + ')' );
 			} else {
-				div.innerHTML = 'json読み込みエラー';
+				alert('json読み込みエラー');
 			}
 		}
 	
@@ -24,6 +23,15 @@
 		map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: 35.681391, lng: 139.766103} ,
 		zoom: 10
-	});
+		});
+		
+		for(var i = 0; i < data.length; i++){
+					
+			var marker = new google.maps.Marker({
+			    position: (data[i].lat, data[i].lng),
+			    map: map,
+			    name: data[i].name
+		  	});
+		}
 	
-}
+	}
