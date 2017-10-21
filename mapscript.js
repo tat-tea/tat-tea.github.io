@@ -10,6 +10,7 @@
 			var div = document.getElementById('test');
 			if(req.status == 200){
 				var obj = JSON.parse(req.responseText);
+				alert(obj.length)
 			} else {
 				div.innerHTML = 'json読み込みエラー';
 			}
