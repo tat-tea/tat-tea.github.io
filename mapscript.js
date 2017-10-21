@@ -1,6 +1,4 @@
-﻿
-//
-var map;
+﻿var map;
 var marker = [];
 	var data = [
 	{
