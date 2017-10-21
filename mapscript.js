@@ -10,12 +10,14 @@
 			var div = document.getElementById('test');
 			if(req.status == 200){
 				var txt = req.responseText
-				var data = eval('(' + txt + ')');
+				req.innertHTML = txt
+				/* var data = eval('(' + txt + ')');
 				for(var i = 0 ; i < data.length(); i++){
 					
 					alert(data[i].name);
 				
 				}
+				*/
 			} else {
 				div.innerHTML = 'json読み込みエラー';
 			}
