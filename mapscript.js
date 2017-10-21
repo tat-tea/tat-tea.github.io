@@ -19,6 +19,7 @@ var marker = [];
 	];
 
 function downloadData(){
+	var req = new XMLHttpRequest();
   GDownloadUrl("station.json", function dispData(data, statusCode){
     var obj = eval("(" + data + ")");
 
@@ -48,4 +49,5 @@ function initMap() {
 	center: {lat: 35.681391, lng: 139.766103} ,
 	zoom: 10
 });
+	map.data.loadGeoJson('station.json');
 }
