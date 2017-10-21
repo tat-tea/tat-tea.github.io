@@ -2,7 +2,7 @@
 	
 	//load json
 	function loadJson(){
-	alert('やるぜ');
+	alert('いくぜ');
 	var req = new XMLHttpRequest();
 	req.open('GET', 'station.json');
 	req.onreadystatechange = function(event){
@@ -10,17 +10,11 @@
 			var div = document.getElementById('test');
 			if(req.status == 200){
 				var data = eval('(' + req.responseText + ')');
-				for(var i = 0 ; i < data.length; i++){
+				for(var i = 0 ; i < data.length(); i++){
 					
-					//if(data[i].deleteFlg == 0){
-					//}
-					
-					div.innerHTML = data[i].name
+					alert(data[i].name);
 				
 				}
-				
-				
-				
 			} else {
 				div.innerHTML = 'json読み込みエラー';
 			}
