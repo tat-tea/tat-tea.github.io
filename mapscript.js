@@ -9,8 +9,6 @@
 		if(req.readyState == 4){
 			var div = document.getElementById('test');
 			if(req.status == 200){
-				div.innerHTML = req.responseText;
-				
 				var data = eval('(' + req.responseText + ')');
 				for(var i = 0 ; i < data.length; i++){
 					
