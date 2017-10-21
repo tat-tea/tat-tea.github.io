@@ -1,6 +1,8 @@
-﻿	var map;
+	var map;
 	
 	//load json
+	function loadJson(){
+	alert('やるぜ');
 	var req = new XMLHttpRequest();
 	req.open('GET', 'station.json');
 	req.onreadystatechange = function(event){
@@ -8,9 +10,13 @@
 			var div = document.getElementById('test');
 			if(req.status == 200){
 				div.innerHTML = req.responseText;
+			} else {
+				div.innerHTML = 'json読み込みエラー';
 			}
 		}
 	
+	};
+	req.send();
 	}
 	
 	function initMap() {
