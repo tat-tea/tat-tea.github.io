@@ -1,6 +1,7 @@
 var map;
 var marker = [];
 var data = [];
+
 function initMap() {
 	var myLatlng = new google.maps.LatLng(35.6954806, 139.76325);
 	var mapOptions = {
@@ -31,8 +32,8 @@ function initMap() {
 
 	for (var i = 0; i < data.length; i++) {
 
-		var flat = markerData(data[i].lat);
-		var flng = markerData(data[i].lng);
+		var flat = parseFloat(data[i].lat);
+		var flng = parseFloat(data[i].lng);
 
 		markerLatLng = new google.maps.LatLng({
 			lat : flat,
@@ -43,5 +44,4 @@ function initMap() {
 			map : map // マーカーを立てる地図を指定
 		});
 	}
-
 }
