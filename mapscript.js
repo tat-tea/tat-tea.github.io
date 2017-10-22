@@ -29,6 +29,7 @@ function initMap() {
 		}
 	});//jsonの閉じ
 	
+	
   function createMarker(name, latlng) {
     var marker = new google.maps.Marker({
 	position: latlng, 
