@@ -18,7 +18,7 @@ function initMap() {
 	};
 	for (var i = 0; i < data.length; i++) {
 	
-		var latlng = new google.maps.LatLng(parseFloat(data[i].lat), parseFloat(data[i].lng));
+		var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
     	var marker = createMarker(data[i].name , latlng);
 	
 		markerLatLng = {lat: data[i].lat, lng: data[i].lng};
