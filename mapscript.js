@@ -31,7 +31,7 @@ var markerData = [ // マーカーを立てる場所名・緯度・経度
 ];
 
 function initMap() {
-	var myLatlng = new google.maps.LatLng(35.170981, 136.881556);
+	var myLatlng = new google.maps.LatLng(35.6954806, 139.76325);
 	var mapOptions = {
 		zoom : 15,
 		center : myLatlng
@@ -58,10 +58,10 @@ function initMap() {
 		async : true
 	});
 
-	for (var i = 0; i < markerData.length; i++) {
+	for (var i = 0; i < data.length; i++) {
 		markerLatLng = new google.maps.LatLng({
-			lat : markerData[i]['lat'],
-			lng : markerData[i]['lng']
+			lat : data[i]['lat'],
+			lng : data[i]['lng']
 		}); // 緯度経度のデータ作成
 		marker[i] = new google.maps.Marker({ // マーカーの追加
 			position : markerLatLng, // マーカーを立てる位置を指定
