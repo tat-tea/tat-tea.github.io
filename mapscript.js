@@ -47,8 +47,8 @@ function initMap() {
 			data.push(
 				{
 					name : json[i].name,
-					lat : parseFloat(json[i].lat),
-					lng : parseFloat(json[i].lng)
+					lat : Number(json[i].lat),
+					lng : Number(json[i].lng)
 				}
 			);
 		}
