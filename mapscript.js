@@ -59,9 +59,13 @@ function initMap() {
 	});
 
 	for (var i = 0; i < data.length; i++) {
+
+		var flat = parseFloat(data[i].lat);
+		var flng = parseFloat(data[i].lng);
+
 		markerLatLng = new google.maps.LatLng({
-			lat : parseFloat(data[i]['lat']),
-			lng : parseFloat(data[i]['lng'])
+			lat : flat,
+			lng : flng
 		}); // 緯度経度のデータ作成
 		marker[i] = new google.maps.Marker({ // マーカーの追加
 			position : markerLatLng, // マーカーを立てる位置を指定
