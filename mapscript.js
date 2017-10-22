@@ -2,30 +2,12 @@ var map;
 var marker = [];
 var data = [];
 function initMap() {
-	var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
+	var myLatlng = new google.maps.LatLng(35.170981, 136.881556);
 	var mapOptions = {
-		zoom : 4,
+		zoom : 15,
 		center : myLatlng
 	}
 	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-	var marker = new google.maps.Marker({
-		position : myLatlng,
-		title : "Hello World!"
-	});
-
-	// To add the marker to the map, call setMap();
-	marker.setMap(map);
-
-	/*
-
-	map = new google.maps.Map(document.getElementById('map'), {
-		center : {
-			lat : 35.170981,
-			lng : 136.881556
-		},
-		zoom : 15
-	});
 
 	//同期処理
 	$.ajaxSetup({
@@ -46,6 +28,28 @@ function initMap() {
 	$.ajaxSetup({
 		async : true
 	});
+
+	var next = new google.maps.LatLng(data[0].lat, data[0].lng);
+
+	var marker = new google.maps.Marker({
+		position : next,
+		title : data[0].name
+	});
+
+	// To add the marker to the map, call setMap();
+	marker.setMap(map);
+
+	/*
+
+	map = new google.maps.Map(document.getElementById('map'), {
+		center : {
+			lat : 35.170981,
+			lng : 136.881556
+		},
+		zoom : 15
+	});
+
+
 
 	//マーカを立てる
 	for (var i = 0; i < data.length; i++) {
