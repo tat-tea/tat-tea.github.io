@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>XMLファイル多数のマーカー表示｜Google Maps API！ブログ素人のホームページの作成メモ</title>
+<meta name="keywords" content="Google Maps API V3,アイコン,マーカー,地図,表示,Google Maps API,ブログ,素人,ホームページ,作成,メモ" />
+<meta name="description" content="Google Maps API V3でアイコン（マーカー）をたくさん表示させてみた。驚いたことにｖ2より格段に速そう。｜Google Maps API！ブログ素人のホームページの作成メモ" />
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="http://waox.main.jp/maps/js/util.js"></script> 
+<link rel="stylesheet" href="layout-5-master.css" type="text/css" />
+<script type="text/javascript"> 
+  var infowindow;
+  var map;
+ 
+  function initialize() {
+    var myLatlng = new google.maps.LatLng(35.68407, 139.63623);
+    var myOptions = {
+      zoom:13,
+      center: myLatlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    downloadUrl("geo.xml", function(data) {
+      var markers = data.documentElement.getElementsByTagName("marker");
+      for (var i = 0; i < markers.length; i++) {
+        var latlng = new google.maps.LatLng(parseFloat(markers[i].getAttribute("lat")),
+                                    parseFloat(markers[i].getAttribute("lng")));
+        var marker = createMarker(markers[i].getAttribute("name"), latlng);
+       }
+     });
+  }
+ 
+  function createMarker(name, latlng) {
+    var marker = new google.maps.Marker(
+	{
+	position: latlng, 
+	animation: google.maps.Animation.DROP,
+	map: map
+	});
+    google.maps.event.addListener(marker, "click", function() {
+      if (infowindow) infowindow.close();
+      infowindow = new google.maps.InfoWindow({content: name});
+      infowindow.open(map, marker);
+    });
+    return marker;
+  }
+ 
+
+
+</script> 
+
+</head>
+<body onload="initialize()">
+<div id="maincontainer">
+<p align="center"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-6865065121910215";
+/* newsmap */
+google_ad_slot = "1899775519";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></p>
+<div id="navtoplist">
+<ul>
+<li><a href="http://waox.main.jp/news/?page_id=1013" target="_self">Maps V3 トップ</a></li>
+<li id="current"><a target="_self">1400マーカのXMLファイル読み込み</a></li>
+<li ><a target="_self" href="http://waox.main.jp/news/maps/v3/example/map-control4.html">マーカーアニメーションClass</a></li>
+</ul>
+</div>
+<div id="navtoplistline">&nbsp;</div>
+<div id="contentwrapper">
+<div id="maincolumn">
+<div class="text">
+  <div id="map_canvas">Loading...</div>
+</div>
+</div>
+</div>
+</div>
+<p align="center" style="padding-top : 5px;padding-bottom : 5px;"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-6865065121910215";
+/* newsmap715-15 */
+google_ad_slot = "9732734938";
+google_ad_width = 728;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></p>
+<!-- [i2i]   -->
+<span id="noscripttags"><noscript><a href="http://ac5.i2idata.com/bin/nojslink?00412435" target="_blank"><img src="http://ac5.i2idata.com/bin/nojs.php/00412435" border="0" /></a></noscript></span><span id="prtaglink"><a href="http://www.mendou-kenshoku.com/" target="_blank"><img src="http://image.mendou-kenshoku.com/bnr.gif?00412435" border="0" alt="アンチエイジングの基本" /></a></span>
+<script type="text/javascript" src="http://ac5.i2idata.com/bin/2nd_gets.php?00412435"></script>
+<!-- [Google]   -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10371111-17");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+<!-- [Google]   -->
+
+</body>
+</html>
