@@ -17,7 +17,7 @@ data.push(
 );
 };
 for (var i = 0; i < data.length; i++) {
-markerLatLng = {lat: data[i]['lat'], lng: data[i]['lng']};
+markerLatLng = {lat: data[i].lat, lng: data[i].lng};
 marker[i] = new google.maps.Marker({
 position: markerLatLng,
 map: map
