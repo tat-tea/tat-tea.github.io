@@ -9,6 +9,7 @@ function initMap() {
 		},
 		zoom : 15
 	});
+	$.ajaxSetup({async: false});
 	$.getJSON("station.json", function(json) {
 		for (var i = 0; i <= json.length - 1; i++) {
 			data.push(
@@ -36,7 +37,7 @@ function initMap() {
 //			});
 //		}
 	}); //jsonの閉じ
-
+	$.ajaxSetup({async: true});
 
 	alert(data.length);
 }
