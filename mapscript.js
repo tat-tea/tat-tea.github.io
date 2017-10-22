@@ -43,6 +43,8 @@ function initMap() {
 			title : data[i].name
 		});
 
+		marker.setMap(map);
+
 	}
 
 }
