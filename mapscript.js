@@ -9,6 +9,8 @@ function initMap() {
 		},
 		zoom : 15
 	});
+
+	//同期処理
 	$.ajaxSetup({
 		async : false
 	});
@@ -30,18 +32,14 @@ function initMap() {
 
 	//マーカを立てる
 	for (var i = 0; i < data.length; i++) {
-		var lat = data[i].lat;
-		var lng = data[i].lng;
-		var latlng = new google.maps.LatLng(140, 41);
-		var marker = createMarker(data[i].name, latlng);
-
 		markerLatLng = {
 			lat : data[i].lat,
 			lng : data[i].lng
 		};
 		marker[i] = new google.maps.Marker({
 			position : markerLatLng,
-			map : map
+			map : map,
+			title : data[i].name
 		});
 	}
 
