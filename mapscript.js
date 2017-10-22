@@ -19,8 +19,8 @@ function initMap() {
 	for (var i = 0; i < data.length; i++) {
 		var lat = data[i].lat;
 		var lng =  data[i].lng;
-		var latlng = new google.maps.LatLng(140, 41);
-    	var marker = createMarker(data[i].name , latlng);
+		var latlng = new google.maps.LatLng(lat, lng);
+    	var marker = createMarker(data[i].name , lat, lng);
 	
 		markerLatLng = {lat: data[i].lat, lng: data[i].lng};
 		marker[i] = new google.maps.Marker({
@@ -31,9 +31,10 @@ function initMap() {
 	});//jsonの閉じ
 	
 	
-  function createMarker(name, latlng) {
+  function createMarker(name, _lat, _lng) {
+	posi = {lat: _lat, lng: _lng};
     var marker = new google.maps.Marker({
-	position: latlng, 
+	position: posi, 
 	animation: google.maps.Animation.DROP,
 	map: map
 	});
