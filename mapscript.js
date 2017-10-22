@@ -48,4 +48,5 @@ function getJSON() {
 	req.open("GET", "station.json"); 
 	// 実際にサーバーへリクエストを送信
 	req.send(null); 
+	
 }
