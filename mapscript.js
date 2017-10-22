@@ -41,6 +41,7 @@ function initMap() {
 		}); // 緯度経度のデータ作成
 		marker[i] = new google.maps.Marker({ // マーカーの追加
 			position : markerLatLng, // マーカーを立てる位置を指定
+			name : data[i].name,
 			map : map // マーカーを立てる地図を指定
 		});
 	}
