@@ -40,7 +40,8 @@ function getJSON() {
 		// サーバーからのレスポンスが完了し、かつ、通信が正常に終了した場合
 		if(req.readyState == 4 && req.status == 200){
 			// 取得した JSON ファイルの中身を表示
-			alert(req.responseText);
+			vat elem = eval('(' + req.responseText + ')');
+			alert(elem.length);
 		}
 	};
 	// HTTPメソッドとアクセスするサーバーの　URL　を指定
