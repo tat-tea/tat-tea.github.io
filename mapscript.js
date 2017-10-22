@@ -29,7 +29,8 @@ function initMap() {
 		async : true
 	});
 
-	var next = new google.maps.LatLng(data[0].lat, data[0].lng);
+	var next = new google.maps.LatLng(140.7, 41.01);
+	var next2 = new google.maps.LatLng(data[0].lat, data[0].lng);
 
 	var marker = new google.maps.Marker({
 		position : next,
