@@ -31,12 +31,20 @@ function initMap() {
 }
 
 function getJSON() {
-  var req = new XMLHttpRequest();		  // XMLHttpRequest オブジェクトを生成する
-  req.onreadystatechange = function() {		  // XMLHttpRequest オブジェクトの状態が変化した際に呼び出されるイベントハンドラ
-    if(req.readyState == 4 && req.status == 200){ // サーバーからのレスポンスが完了し、かつ、通信が正常に終了した場合
-      alert(req.responseText);		          // 取得した JSON ファイルの中身を表示
-    }
-  };
-  req.open("GET", "station.json", false); // HTTPメソッドとアクセスするサーバーの　URL　を指定
-  req.send(null);					    // 実際にサーバーへリクエストを送信
+	// XMLHttpRequest オブジェクトを生成する
+	var req = new XMLHttpRequest();
+	
+	// XMLHttpRequest オブジェクトの状態が変化した際に呼び出されるイベントハンドラ
+	req.onreadystatechange = function() {
+	
+		// サーバーからのレスポンスが完了し、かつ、通信が正常に終了した場合
+		if(req.readyState == 4 && req.status == 200){
+			// 取得した JSON ファイルの中身を表示
+			alert(req.responseText);
+		}
+	};
+	// HTTPメソッドとアクセスするサーバーの　URL　を指定
+	req.open("GET", "station.json"); 
+	// 実際にサーバーへリクエストを送信
+	req.send(null); 
 }
