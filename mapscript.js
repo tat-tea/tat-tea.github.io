@@ -9,7 +9,6 @@ function initMap() {
 		},
 		zoom : 15
 	});
-
 	$.getJSON("station.json", function(json) {
 		for (var i = 0; i <= json.length - 1; i++) {
 			data.push(
@@ -21,17 +20,37 @@ function initMap() {
 			);
 		}
 		;
+		for (var i = 0; i < data.length; i++) {
+			var lat = data[i].lat;
+			var lng = data[i].lng;
+			var latlng = new google.maps.LatLng(140, 41);
+			var marker = createMarker(data[i].name, latlng);
+
+			markerLatLng = {
+				lat : data[i].lat,
+				lng : data[i].lng
+			};
+			marker[i] = new google.maps.Marker({
+				position : markerLatLng,
+				map : map
+			});
+		}
 	}); //jsonの閉じ
 
-	for (var i = 0; i < data.length; i++) {
-		markerLatLng = {
-			lat : data[i]['lat'],
-			lng : data[i]['lng']
-		};
-		marker[i] = new google.maps.Marker({
-			position : markerLatLng,
-			map : map,
-			title : data[i]['name']
+
+	function createMarker(name, latlng) {
+		var marker = new google.maps.Marker({
+			position : latlng,
+			animation : google.maps.Animation.DROP,
+			map : map
 		});
+		google.maps.event.addListener(marker, "click", function() {
+			if (infowindow) infowindow.close();
+			infowindow = new google.maps.InfoWindow({
+				content : name
+			});
+			infowindow.open(map, marker);
+		});
+		return marker;
 	}
 }
