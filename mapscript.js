@@ -19,7 +19,7 @@ function initMap() {
 	for (var i = 0; i < data.length; i++) {
 		var lat = data[i].lat;
 		var lng =  data[i].lng;
-		var latlng = new google.maps.LatLng(lat, lng);
+		var latlng = new google.maps.LatLng(140, 41);
     	var marker = createMarker(data[i].name , latlng);
 	
 		markerLatLng = {lat: data[i].lat, lng: data[i].lng};
