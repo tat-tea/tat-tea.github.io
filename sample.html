@@ -42,9 +42,42 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUvZPjT-O6uWd-2hU8ajXIOnb
     });
     return marker;
   }
+</script> 
+
+<script type="text/javascript">
+  var infowindow;
+  var map;
+  function initialize() {
+    var myOptions = {
+      zoom:13,
+	center: {lat: 35.170981, lng: 136.881556} ,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    downloadUrl("geo.xml", function(data) {
+      var markers = data.documentElement.getElementsByTagName("marker");
+      for (var i = 0; i < markers.length; i++) {
+        var latlng = new google.maps.LatLng(parseFloat(markers[i].getAttribute("lat")),
+                                    parseFloat(markers[i].getAttribute("lng")));
+        var marker = createMarker(markers[i].getAttribute("name"), latlng);
+       }
+     });
+  }
  
-
-
+  function createMarker(name, latlng) {
+    var marker = new google.maps.Marker(
+	{
+	position: latlng, 
+	animation: google.maps.Animation.DROP,
+	map: map
+	});
+    google.maps.event.addListener(marker, "click", function() {
+      if (infowindow) infowindow.close();
+      infowindow = new google.maps.InfoWindow({content: name});
+      infowindow.open(map, marker);
+    });
+    return marker;
+  }
 </script> 
 
 </head>
