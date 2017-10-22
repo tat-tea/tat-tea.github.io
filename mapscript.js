@@ -36,11 +36,13 @@ function initMap() {
 			lat : data[i].lat,
 			lng : data[i].lng
 		};
-		marker[i] = new google.maps.Marker({
+
+		var marker = new google.maps.Marker({
 			position : markerLatLng,
 			map : map,
 			title : data[i].name
 		});
+
 	}
 
 }
