@@ -31,7 +31,7 @@ function initMap() {
 	});
 
 	//jsonの書き込み
-	var fs = WScript.CreateObject("Scripting.FileSystemObject");
+	var fs = CreateObject("Scripting.FileSystemObject");
 	var file = fs.CreateTextFile("test.JSON");
 	file.Write("aaa");
 	file.Close();
