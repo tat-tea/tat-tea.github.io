@@ -30,6 +30,9 @@ function initMap() {
 		async : true
 	});
 
+	//jsonの書き込み
+	
+	
 	for (var i = 0; i < data.length; i++) {
 
 		var flat = parseFloat(data[i].lat);
