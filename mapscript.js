@@ -31,8 +31,11 @@ function initMap() {
 	});
 
 	//jsonの書き込み
-	
-	
+	var fs = WScript.CreateObject("Scripting.FileSystemObject");
+	var file = fs.CreateTextFile("test.JSON");
+	file.Write("aaa");
+	file.Close();
+
 	for (var i = 0; i < data.length; i++) {
 
 		var flat = parseFloat(data[i].lat);
